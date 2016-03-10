@@ -14,7 +14,7 @@ package ifelse;
 public class Kaup {
 	// 속성영역 : field
 	private String name;
-
+	
 	private int kaup;
 	private double height, weight;
 	private String result;
@@ -30,8 +30,7 @@ public class Kaup {
 	}
 
 	/**
-	 * @param name
-	 *            the name to set
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -79,7 +78,7 @@ public class Kaup {
 	 *            the kaup to set
 	 */
 	public void setKaup() {
-		this.kaup = (int) ((getWeight() / Math.pow(getHeight(), 2)) * 10000);
+		this.kaup = (int) ((weight / Math.pow(height, 2)) * 10000);
 	}
 
 	/**

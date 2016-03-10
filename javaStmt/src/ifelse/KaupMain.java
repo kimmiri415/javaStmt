@@ -28,9 +28,10 @@ public class KaupMain {
 		k.setName(scanner.next());
 		k.setHeight(scanner.nextDouble());
 		k.setWeight(scanner.nextDouble());
-
+		k.setKaup();
+		k.setResult();
 		// 분기문 영역
-		//result = k.getResult();
+		// result = k.getResult();
 		System.out.println(k.getName() + "님은 " + k.getResult() + "입니다.");
 	}
 
