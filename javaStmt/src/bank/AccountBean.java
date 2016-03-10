@@ -28,6 +28,7 @@ public class AccountBean {
 		this.money = 0;
 	}
 
+
 	public int getAccountNo() {
 		return accountNo;
 	}
@@ -54,7 +55,7 @@ public class AccountBean {
 
 	@Override
 	public String toString() {
-		
+
 		return BANK_NAME + "[계좌번호=" + accountNo + ", 계좌명=" + name + ", 비밀번호=" + password + ", 잔액=" + money + "]";
 	}
 

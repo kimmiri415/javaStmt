@@ -10,9 +10,11 @@ package bank;
  * @story 뱅크서비스 비즈니스 로직
  *
  */
+
 public class AdminServiceImpl implements AdminService {
 	private AccountBean[] accountList;// 전체 계좌를 보관하는 객체
-	private int count;// 전체 통장 계좌 수
+
+	private int count = 0;// 전체 통장 계좌 수
 
 	public AdminServiceImpl(int size) {
 		// accountList를 초기화 해줌
@@ -28,8 +30,7 @@ public class AdminServiceImpl implements AdminService {
 		AccountBean bean = new AccountBean(name, password);
 		accountList[count].setMoney(0);
 		accountList[count].setPassword(password);
-		accountList[count]
-
+		// setName, setAccountNo 배열에어떻게넣지..
 		count++;// 계좌를 개설할 때마다 카운트를 1씩증가시킨다.
 		return bean.toString();
 	}
@@ -43,6 +44,7 @@ public class AdminServiceImpl implements AdminService {
 		for (int i = 0; i < count; i++) {
 			if (true) {
 				temp = null;
+
 			}
 		}
 		return temp;
@@ -54,7 +56,12 @@ public class AdminServiceImpl implements AdminService {
 		 * 이름으로 계좌 조회(복수개의 결과가능)
 		 */
 		AccountBean[] tempList = new AccountBean[countByName(name)];
+		for (int i = 0; i < count; i++) {
+			if (accountList[i].getName() == name) {
 
+			}
+
+		}
 		return tempList;
 	}
 
@@ -79,7 +86,13 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 해당 이름에 맞는 계좌 수 조회
 		 */
-		return 0;
+		int countAccountbyName = 0;
+		for (int i = 0; i < count; i++) {
+			if (accountList[i].getName() == name) {
+				countAccountbyName++;
+			}
+		}
+		return countAccountbyName;
 	}
 
 }

@@ -23,9 +23,10 @@ public class BankMain {
 		System.out.println("admin :'1', customer : '2'");
 		switch (scanner.nextInt()) {
 		case 1:
+			System.out.println("이름, password입력하세요");
 
-			
-			
+			System.out.println(admin.openAccount(scanner.next(), scanner.nextInt()));
+
 			break;
 		case 2:
 			System.out.println("이름, password입력하세요");
