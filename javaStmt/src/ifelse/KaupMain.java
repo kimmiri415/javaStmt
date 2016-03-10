@@ -16,11 +16,6 @@ import java.util.Scanner;
 
 public class KaupMain {
 	public static void main(String[] args) {
-		// 지역변수영역
-		int kaup = 0;
-		double weight = 0.0, height = 0.0;
-		String result = "", name = "";// ""리터럴이라고 명명하겠음
-
 		Scanner scanner = new Scanner(System.in);
 		Kaup k = new Kaup();
 
@@ -28,11 +23,9 @@ public class KaupMain {
 		k.setName(scanner.next());
 		k.setHeight(scanner.nextDouble());
 		k.setWeight(scanner.nextDouble());
-		k.setKaup();
+	
 		k.setResult();
-		// 분기문 영역
-		// result = k.getResult();
-		System.out.println(k.getName() + "님은 " + k.getResult() + "입니다.");
+		System.out.println(k.toString());
 	}
 
 }
