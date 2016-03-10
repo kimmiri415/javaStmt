@@ -13,6 +13,7 @@ public class BankServiceImpl implements BankService {
 		 * 계좌 개설
 		 */
 		account = new AccountBean(name, password);
+	
 		return "계좌개설성공 > " + account.getName() + "님 계좌 번호 :" + account.getAccountNo();
 	}
 

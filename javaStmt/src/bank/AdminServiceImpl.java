@@ -11,6 +11,14 @@ package bank;
  *
  */
 public class AdminServiceImpl implements AdminService {
+	private AccountBean[] accountList;// 전체 계좌를 보관하는 객체
+	private int count;// 전체 통장 계좌 수
+
+	public AdminServiceImpl(int size) {
+		// accountList를 초기화 해줌
+		accountList = new AccountBean[size];
+
+	}
 
 	@Override
 	public String openAccount(String name, int password) {
@@ -18,6 +26,11 @@ public class AdminServiceImpl implements AdminService {
 		 * 계좌 개설
 		 */
 		AccountBean bean = new AccountBean(name, password);
+		accountList[count].setMoney(0);
+		accountList[count].setPassword(password);
+		accountList[count]
+
+		count++;// 계좌를 개설할 때마다 카운트를 1씩증가시킨다.
 		return bean.toString();
 	}
 
@@ -26,7 +39,13 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 계좌번호로 계좌 조회(반드시 하나만 검색됨)
 		 */
-		return null;
+		AccountBean temp = new AccountBean();
+		for (int i = 0; i < count; i++) {
+			if (true) {
+				temp = null;
+			}
+		}
+		return temp;
 	}
 
 	@Override
@@ -34,7 +53,9 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 이름으로 계좌 조회(복수개의 결과가능)
 		 */
-		return null;
+		AccountBean[] tempList = new AccountBean[countByName(name)];
+
+		return tempList;
 	}
 
 	@Override
@@ -50,11 +71,11 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 전체 계좌수 조회
 		 */
-		return 0;
+		return count;
 	}
 
 	@Override
-	public int countByName() {
+	public int countByName(String name) {
 		/**
 		 * 해당 이름에 맞는 계좌 수 조회
 		 */
