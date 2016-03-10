@@ -13,7 +13,13 @@ public class AccountBean {
 	 */
 
 	public AccountBean(String name, int password) {
-		this.accountNo = (int) (Math.random() * 10) + 1;
+
+		double result = Math.floor(Math.random() * 1000000) + 100000;
+		if (result > 1000000) {
+			result = result - 100000;
+		}
+		// this.accountNo = (int) (Math.random() * 10) + 1;
+		this.accountNo = (int) result;
 		this.name = name;
 		this.password = password;
 		this.money = 0;
