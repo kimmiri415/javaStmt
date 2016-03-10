@@ -12,6 +12,9 @@ public class AccountBean {
 	 * 6자리로합시다) 계좌 주인의 이름은 새겨지며 비번도 설정합니다 다만, 잔액은 통장이 만들어진 이후에 입금이 되겠지요.
 	 */
 
+	public AccountBean() {
+	}// 지역변수 용도로 사용하기 위해 오버로딩
+
 	public AccountBean(String name, int password) {
 
 		double result = Math.floor(Math.random() * 1000000) + 100000;
@@ -51,6 +54,7 @@ public class AccountBean {
 
 	@Override
 	public String toString() {
+		
 		return BANK_NAME + "[계좌번호=" + accountNo + ", 계좌명=" + name + ", 비밀번호=" + password + ", 잔액=" + money + "]";
 	}
 
