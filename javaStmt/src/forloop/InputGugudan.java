@@ -16,16 +16,17 @@ import java.util.Scanner;
 public class InputGugudan {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		int dan;
 		System.out.println("숫자를 입력해주세요 :");
-		int inputNum = scanner.nextInt();
+		dan = scanner.nextInt();
 
-		if (inputNum <= 0) {
+		if (dan <= 0) {
 			System.out.println("1이상 정수값만 입력하시오 ");
-		} else {
-			for (int i = 2; i < 10; i++) {
-				System.out.println(inputNum + " * " + i + " = " + inputNum * i);
+			return;// 이 메소드를 종료시켜라
+		}
+		for (int i = 2; i < 10; i++) {
+			System.out.println(dan + " * " + i + " = " + dan * i);
 
-			}
 		}
 
 	}

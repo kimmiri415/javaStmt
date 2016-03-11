@@ -14,7 +14,7 @@ public interface AdminService {
 	/**
 	 * 이름으로 계좌 조회(복수개의 결과가능)
 	 */
-	public AccountBean[] findAccountsByName(String name);
+	public void findAccountsByName(String name);
 
 	/**
 	 * 계좌 해지

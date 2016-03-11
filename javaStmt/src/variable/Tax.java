@@ -21,7 +21,7 @@ public class Tax {
 		System.out.println("이름, 연봉 입력");
 		name = scanner.nextLine();
 		salaryYear = scanner.nextInt();
-		tax = (int) (salaryYear * (0.1));
+		tax = (int) (salaryYear * (0.1) / 12);
 		System.out.println("[결과] 연봉" + salaryYear + "만원을 받으시는 " + name + "님께서 이번달 납부할 세금은 " + tax + "만원입니다.");
 	}
 }

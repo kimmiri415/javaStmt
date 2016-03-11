@@ -27,6 +27,6 @@ public class FactorOf5 {
 			}
 		}
 
-		System.out.println("[결과] 1에서 " + endNum + "까지의 정수 중" + "5배수의 갯수는 " + count + "이고" + "5배수의 합은 " + sum + "이다.");
+		System.out.println("[결과] 1에서 " + endNum + "까지의 정수 중 " + "5배수의 갯수는 " + count + "이고F" + "5배수의 합은 " + sum + "이다.");
 	}
 }
