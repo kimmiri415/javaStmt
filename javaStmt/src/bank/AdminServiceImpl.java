@@ -28,9 +28,10 @@ public class AdminServiceImpl implements AdminService {
 		 * 계좌 개설
 		 */
 		AccountBean bean = new AccountBean(name, password);
-		accountList[count].setMoney(0);
-		accountList[count].setPassword(password);
-		// setName, setAccountNo 배열에어떻게넣지..
+
+		accountList[count] = bean;
+
+		System.out.println(accountList[count] + "배열넣어짐?");
 		count++;// 계좌를 개설할 때마다 카운트를 1씩증가시킨다.
 		return bean.toString();
 	}
@@ -42,8 +43,8 @@ public class AdminServiceImpl implements AdminService {
 		 */
 		AccountBean temp = new AccountBean();
 		for (int i = 0; i < count; i++) {
-			if (true) {
-				temp = null;
+			if (accountList[i].getAccountNo() == accountNo) {
+				temp = accountList[i];
 
 			}
 		}
@@ -55,10 +56,13 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 이름으로 계좌 조회(복수개의 결과가능)
 		 */
+
 		AccountBean[] tempList = new AccountBean[countByName(name)];
+		int AccountNum = 0;
 		for (int i = 0; i < count; i++) {
 			if (accountList[i].getName() == name) {
-
+				tempList[AccountNum] = accountList[i];
+				AccountNum++;
 			}
 
 		}
@@ -70,6 +74,18 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 계좌 해지
 		 */
+		AccountBean newAccountList[] = new AccountBean[count - 1];
+		for (int i = 0; i < count; i++) {
+			if (accountList[i].getAccountNo() == accountNo) {
+				for (int j = 0; j < newAccountList.length; j++) {
+
+				}
+
+				count--;
+
+			}
+		}
+
 		return null;
 	}
 

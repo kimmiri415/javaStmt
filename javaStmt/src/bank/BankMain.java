@@ -27,6 +27,13 @@ public class BankMain {
 
 			System.out.println(admin.openAccount(scanner.next(), scanner.nextInt()));
 
+			System.out.println("[계좌번호로 계좌조회] 계좌번호 입력 :");
+			System.out.println(admin.findAccountByAccountNo(scanner.nextInt()));
+
+			System.out.println("[계좌이름으로로 계좌조회] 계좌이름 입력 : ");
+			System.out.println(admin.findAccountsByName(scanner.next()));
+
+			System.out.println("[계좌 해지] 계좌번호 입력 :");
 			break;
 		case 2:
 			System.out.println("이름, password입력하세요");
