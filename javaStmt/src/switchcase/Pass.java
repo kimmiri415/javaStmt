@@ -31,10 +31,13 @@ public class Pass {
 
 		sumScore = java + jsp + sql + spring;
 		avgScore = sumScore / 4;
+		switch (avgScore / 10) {
 
-		switch (avgScore) {
-
-		case 60 100:
+		case 10:
+		case 9:
+		case 8:
+		case 7:
+		case 6:
 
 			pass = "합격";
 			break;
