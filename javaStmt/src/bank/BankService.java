@@ -10,14 +10,15 @@ public interface BankService {
 	/**
 	 * 입금
 	 */
-	public String deposit(int money);
+	public String deposit(int accountNo, int money);
 
 	/**
 	 * 출금
 	 */
-	public String withdraw(int money);
+	public String withdraw(int accountNo, int money);
+
 	/**
 	 * 잔액조회
-	 * */
-	public String findMoney();
+	 */
+	public String findMoney(int accountNo);
 }

@@ -73,18 +73,28 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 계좌 해지
 		 */
+		int indexNum = 0;
 		AccountBean newAccountList[] = new AccountBean[count - 1];
 		for (int i = 0; i < count; i++) {
 			if (accountList[i].getAccountNo() == accountNo) {
-				for (int j = 0; j < newAccountList.length; j++) {
 
-				}
-
-				count--;
+				indexNum = i;
+				accountList[i] = null;// 계좌정보초기화
 
 			}
+			System.out.println(accountList[i]);
 		}
-
+		System.out.println(indexNum + "몇번째계좌임 ");
+		// if (indexNum != 0) {
+		// System.arraycopy(accountList, 0, newAccountList, 0, indexNum);
+		// System.arraycopy(accountList, indexNum + 1, newAccountList, indexNum,
+		// count);
+		// }
+		// if(indexNum==0){
+		// System.arraycopy(src, srcPos, dest, destPos, length);
+		// }
+		count--;
+		accountList = newAccountList;
 		return null;
 	}
 

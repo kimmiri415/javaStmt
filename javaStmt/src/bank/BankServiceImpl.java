@@ -13,12 +13,12 @@ public class BankServiceImpl implements BankService {
 		 * 계좌 개설
 		 */
 		account = new AccountBean(name, password);
-	
+
 		return "계좌개설성공 > " + account.getName() + "님 계좌 번호 :" + account.getAccountNo();
 	}
 
 	@Override
-	public String deposit(int money) {
+	public String deposit(int accountNo, int money) {
 		/**
 		 * 입금
 		 */
@@ -28,7 +28,7 @@ public class BankServiceImpl implements BankService {
 	}
 
 	@Override
-	public String withdraw(int money) {
+	public String withdraw(int accountNo, int money) {
 		/**
 		 * 출금
 		 */
@@ -45,7 +45,7 @@ public class BankServiceImpl implements BankService {
 	}
 
 	@Override
-	public String findMoney() {
+	public String findMoney(int accountNo) {
 		/**
 		 * 잔액조회
 		 */
