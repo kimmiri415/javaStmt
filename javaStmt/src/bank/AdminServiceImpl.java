@@ -82,19 +82,24 @@ public class AdminServiceImpl implements AdminService {
 				accountList[i] = null;// 계좌정보초기화
 
 			}
-			System.out.println(accountList[i]);
 		}
-		System.out.println(indexNum + "몇번째계좌임 ");
-		// if (indexNum != 0) {
-		// System.arraycopy(accountList, 0, newAccountList, 0, indexNum);
-		// System.arraycopy(accountList, indexNum + 1, newAccountList, indexNum,
-		// count);
-		// }
-		// if(indexNum==0){
-		// System.arraycopy(src, srcPos, dest, destPos, length);
-		// }
+		if (count != 1) {
+			if (indexNum != 0) {
+				System.arraycopy(accountList, 0, newAccountList, 0, indexNum);
+				System.arraycopy(accountList, indexNum + 1, newAccountList, indexNum, count - indexNum - 1);
+
+			} else if (indexNum == 0) {
+				System.arraycopy(accountList, 1, newAccountList, 0, count - 1);
+			}
+		}
+
 		count--;
-		accountList = newAccountList;
+
+		for (int i = 0; i < newAccountList.length; i++) {
+			accountList[i] = newAccountList[i];
+			System.out.println(i + "번째계좌 : " + accountList[i]);
+		}
+
 		return null;
 	}
 
