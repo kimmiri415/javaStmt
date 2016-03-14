@@ -17,19 +17,8 @@ public class LeapYear {
 		System.out.println("판별하려는 년도를 입력");
 		int year = scanner.nextInt();
 		String yearStr = "";
-		if (year % 4 == 0) {
-			if (year % 100 == 0) {
-				if (year % 400 == 0) {
-					yearStr = "윤년";
-				} else {
-					yearStr = "평년";
-				}
-			} else {
-				yearStr = "윤년";
-			}
-		} else {
-			yearStr = "평년";
-		}
+		yearStr = (year % 4 == 0) ? (yearStr = (year % 100 == 0) ? (yearStr = (year % 400 == 0) ? "윤년" : "평년") : "윤년")
+				: "평년";
 		System.out.println(year + "는" + yearStr + "입니다.");
 	}
 }
