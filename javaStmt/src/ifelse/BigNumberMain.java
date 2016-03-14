@@ -29,13 +29,15 @@ class BigNumber {
 	public int getBigNumber(int a, int b, int c) {
 
 		int big = 0;
-		if (a > b && a > c) {
-			big = a;
-		} else if (b > a && b > c) {
-			big = b;
-		} else if (c > a && c > b) {
-			big = c;
-		}
+//		if (a > b && a > c) {
+//			big = a;
+//		} else if (b > a && b > c) {
+//			big = b;
+//		} else if (c > a && c > b) {
+//			big = c;
+//		}
+		big = ((a > b && a > c) ? a : ((b > a && b > c) ? b : c));
+
 		return big;
 
 	}

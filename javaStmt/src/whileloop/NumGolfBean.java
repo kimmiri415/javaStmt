@@ -8,7 +8,7 @@ public class NumGolfBean {
 	// com : 컴퓨터가 랜덤생성한 값
 	// count : 플레이어가 입력한 횟수
 	// count가 작을수록 승리
-	int player, com, count = 1;
+	int player, com, count = 0;
 	boolean flag; // com의 숫자와 일치하는지 체크하는 값
 
 	/**
@@ -24,13 +24,12 @@ public class NumGolfBean {
 	 */
 	public void setPlayer(int player) {
 		this.player = player;
-
+		setCount();
 		if (getCom() == this.player) {
 			setFlag(true);
 
 		} else {
 			setFlag(false);
-			setCount();
 
 		}
 	}
@@ -80,6 +79,8 @@ public class NumGolfBean {
 	 */
 	public void setFlag(boolean flag) {
 		this.flag = flag;
+		toString();
+
 	}
 
 	@Override

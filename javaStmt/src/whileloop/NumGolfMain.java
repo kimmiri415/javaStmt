@@ -19,12 +19,32 @@ public class NumGolfMain {
 		NumGolfBean bean = new NumGolfBean();
 		bean.setCom();
 
-		while (bean.isFlag() == false) {
-			System.out.println("숫자 입력 :");
-			bean.setPlayer(scanner.nextInt());
+		// while (bean.isFlag() == false) {
+		// System.out.println("숫자 입력 :");
+		// bean.setPlayer(scanner.nextInt());
+		//
+		// }
+		// System.out.println(bean.toString());
 
+		System.out.println("[메뉴] 1.숫자맞추기 2.종료");
+		switch (scanner.nextInt()) {
+		case 1:
+			while (bean.isFlag() == false) {
+				System.out.println("1부터 10까지 숫자 중하나를 입력");
+				bean.setPlayer(scanner.nextInt());
+				System.out.println(bean.toString());
+			}
+
+			break;
+		case 2:
+			System.out.println("종료합니다.");
+			return;
+
+		default:
+			System.out.println("잘못된값");
+			return;
 		}
-		System.out.println(bean.toString());
+
 	}
 
 }
