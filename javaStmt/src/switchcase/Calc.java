@@ -11,8 +11,8 @@ package switchcase;
  *
  */
 public class Calc {
-	int a, b, result;
-	String opcode, strSub, strResult;
+	private int a, b, result;
+	private String opcode, strSub, strResult;
 
 	public void getCalc(int a, String opcode, int b) {
 		this.a = a;

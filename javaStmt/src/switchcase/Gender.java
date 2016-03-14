@@ -5,8 +5,8 @@ package switchcase;
 
 public class Gender {
 
-	String name, gender, result, ssn;
-	char flag;
+	private String name, gender, result, ssn;
+	private char flag;
 
 	public void getGender(String name, String ssn) {
 		this.name = name;

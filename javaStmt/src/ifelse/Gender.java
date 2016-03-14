@@ -11,8 +11,8 @@ package ifelse;
  *
  */
 public class Gender {
-	String name, ssn, gender;
-	char flag;
+	private String name, ssn, gender;
+	private char flag;
 
 	public void setGender(String name, String ssn) {
 		this.name = name;

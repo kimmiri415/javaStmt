@@ -11,8 +11,8 @@ package switchcase;
  *
  */
 public class Pass {
-	String name, pass = "불합격", result;
-	int java, jsp, sql, spring, sumScore, avgScore;
+	private String name, pass = "불합격", result;
+	private int java, jsp, sql, spring, sumScore, avgScore;
 
 	public void getResult(String name, int java, int jsp, int sql, int spring) {
 		this.name = name;
