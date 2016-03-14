@@ -13,7 +13,7 @@ package forloop;
 public class FactorOf5 {
 	private int endNum, count = 0, sum = 0;
 
-	public String getFactor(int endNum) {
+	public void calFactor(int endNum) {
 		this.endNum = endNum;
 		for (int i = 1; i <= endNum; i++) {
 			if (i % 5 == 0) {
@@ -21,7 +21,12 @@ public class FactorOf5 {
 				sum += i;
 			}
 		}
+	}
+
+
+	public String toString() {
 		return "결과 : 1부터 " + endNum + "까지의 정수 중 " + "5배수의 갯수 : " + count + ", 5배수의 합 : " + sum + "이다.";
+
 	}
 
 }

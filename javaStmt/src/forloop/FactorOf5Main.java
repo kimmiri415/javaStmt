@@ -17,6 +17,7 @@ public class FactorOf5Main {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Limit값 입력 :");
 		FactorOf5 fo = new FactorOf5();
-		System.out.println(fo.getFactor(scanner.nextInt()));
+		fo.calFactor(scanner.nextInt());
+		System.out.println(fo);
 	}
 }

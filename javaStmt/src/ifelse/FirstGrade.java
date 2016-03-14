@@ -1,41 +1,34 @@
-package ifelse;
-
-import java.util.Scanner;
-
 /**
  * 
  */
+package ifelse;
 
 /**
  * @file FirstGrade.java
  * @author rlaalfl92@gmail.com
- * @date 2016. 3. 11.
- * @story 3명의 학생 점수를 받아서 1등을 출력하는 프로그램
+ * @date 2016. 3. 14.
+ * @story
  *
  */
 public class FirstGrade {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("3명의 이름과,점수를 입력하세요 :");
-		String aName = scanner.next();
-		int aScore = scanner.nextInt();
-		String bName = scanner.next();
-		int bScore = scanner.nextInt();
-		String cName = scanner.next();
-		int cScore = scanner.nextInt();
-		String maxName = "";
-		int maxScore = 0;
-		
+	private String maxName = "";
+	private int maxScore = 0;
+
+	public void setMax(String aName, int aScore, String bName, int bScore, String cName, int cScore) {
 		if (aScore > bScore && aScore > cScore) {
-			maxName = aName;
-			maxScore = aScore;
+			this.maxName = aName;
+			this.maxScore = aScore;
 		} else if (bScore > aScore && bScore > cScore) {
-			maxName = bName;
-			maxScore = bScore;
+			this.maxName = bName;
+			this.maxScore = bScore;
 		} else if (cScore > aScore && cScore > bScore) {
-			maxName = cName;
-			maxScore = cScore;
+			this.maxName = cName;
+			this.maxScore = cScore;
 		}
-		System.out.println("1등은 " + maxName + "," + maxScore + "점입니다.");
+
+	}
+
+	public String toString() {
+		return "결과 : " + maxName + "님의 점수 " + maxScore + "점이 1등입니다.";
 	}
 }

@@ -3,34 +3,38 @@
  */
 package switchcase;
 
-import java.util.Scanner;
-
 /**
  * @file Pass.java
  * @author rlaalfl92@gmail.com
- * @date 2016. 3. 11.
- * @story 과목점수를 입력하면 총점과 평균이 나오고 이를 통해 합격 여부를 통지하는 프로그램 [결과]
- *        **********************************************************************
- *        ***** 학생 자바 Jsp SQL 스프링 총점 평균 합격여부
- *        ----------------------------------------------------------------------
- *        ----- 홍길동 80 40 70 60 250 62.5 합격
- *        **********************************************************************
- *        ***** 합격여부는 총점이 60점 이상이면 합격
+ * @date 2016. 3. 14.
+ * @story
+ *
  */
 public class Pass {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		String name = "", pass = "불합격";
-		int java = 0, jsp = 0, sql = 0, spring = 0, sumScore = 0, avgScore = 0;
-		System.out.println("이름과 자바,Jsp,Sql,스프링점수를 입력 :");
-		name = scanner.next();
-		java = scanner.nextInt();
-		jsp = scanner.nextInt();
-		sql = scanner.nextInt();
-		spring = scanner.nextInt();
+	String name, pass = "불합격", result;
+	int java, jsp, sql, spring, sumScore, avgScore;
 
-		sumScore = java + jsp + sql + spring;
-		avgScore = sumScore / 4;
+	public void getResult(String name, int java, int jsp, int sql, int spring) {
+		this.name = name;
+		this.java = java;
+		this.jsp = jsp;
+		this.sql = sql;
+		this.spring = spring;
+		setSumScore();
+		setAvgScore();
+		setPass();
+	}
+
+	public void setSumScore() {
+		this.sumScore = java + jsp + sql + spring;
+	}
+
+	public void setAvgScore() {
+		this.avgScore = sumScore / 4;
+	}
+
+	public void setPass() {
+		this.pass = pass;
 		switch (avgScore / 10) {
 
 		case 10:
@@ -39,21 +43,16 @@ public class Pass {
 		case 7:
 		case 6:
 
-			pass = "합격";
-			break;
-
-		default:
-
+			this.pass = "합격";
 			break;
 		}
 
-		System.out.println("******************************************");
-		System.out.println("학생   자바   Jsp   SQL   스프링   총점   평균   합격여부");
-		System.out.println("------------------------------------------");
-		System.out.println(name + " " + java + "점  " + jsp + "점  " + sql + "점  " + spring + "점  " + sumScore + "점  "
-				+ avgScore + "점  " + pass);
-		System.out.println("******************************************");
+	}
 
+	public String toString() {
+		result = ((avgScore / 10) >= 0 && (avgScore / 10) <= 10) ? (name + "   " + java + "점  " + jsp + "점  " + sql
+				+ "점  " + spring + "점  " + sumScore + "점  " + avgScore + "점  " + pass) : "입력값오류";
+		return result;
 	}
 
 }
