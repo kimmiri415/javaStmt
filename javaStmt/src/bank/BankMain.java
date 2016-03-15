@@ -18,7 +18,7 @@ public class BankMain {
 		// 지역변수 영역
 		Scanner scanner = new Scanner(System.in);
 		BankServiceImpl bank = new BankServiceImpl();
-		AdminServiceImpl admin = new AdminServiceImpl(100);
+		AdminServiceImpl2 admin = new AdminServiceImpl2(100);
 		// 연산영역
 
 		mainLoop: while (true) {
@@ -76,11 +76,12 @@ public class BankMain {
 								break;
 							case 2:
 								System.out.println("출금금액 입력 : ");
-								System.out.println(bank.withdraw(inputAccount, scanner.nextInt()));
+								// System.out.println(bank.withdraw(inputAccount,
+								// scanner.nextInt()));
 								break;
 							case 3:
 								System.out.println("잔액조회 : ");
-								System.out.println(bank.findMoney(inputAccount));
+								// System.out.println(bank.findMoney(inputAccount));
 								break;
 							default:
 								System.out.println("해당 값이 존재하지 않습니다.");

@@ -3,18 +3,25 @@
  */
 package bank;
 
+import java.util.Vector;
+
 public class BankServiceImpl implements BankService {
-	private AccountBean account;
+
+	private Vector<AccountBean> accountListB;
 	int balance;
+
+	public BankServiceImpl() {
+		accountListB = new Vector<AccountBean>();
+	}
 
 	@Override
 	public String openAccount(String name, int password) {
 		/**
 		 * 계좌 개설
 		 */
-		account = new AccountBean(name, password);
-
-		return "계좌개설성공 > " + account.getName() + "님 계좌 번호 :" + account.getAccountNo();
+		AccountBean beanB = new AccountBean(name, password);
+		accountListB.add(beanB);
+		return "개설완료 >> " + beanB.toString();
 	}
 
 	@Override
@@ -22,35 +29,76 @@ public class BankServiceImpl implements BankService {
 		/**
 		 * 입금
 		 */
-		balance = account.getMoney();
-		account.setMoney(balance + money);
-		return "입금 후 잔액 > " + account.getMoney() + "원";
-	}
-
-	@Override
-	public String withdraw(int accountNo, int money) {
-		/**
-		 * 출금
-		 */
 		String result = "";
-		balance = account.getMoney();
-		if (balance >= money) {
-			account.setMoney(balance - money);
-			result = "출금 후 잔액 > " + account.getMoney() + "원";
-			;
-		} else {
-			result = "잔액이부족합니다";
+
+		for (int i = 0; i < accountListB.size(); i++) {
+
+			if (accountListB.get(i).getAccountNo() == accountNo) {
+				int balance = accountListB.get(i).getMoney();
+				accountListB.get(i).setMoney(balance + money);
+				result = "입금 완료 >> 계좌 :" + accountListB.get(i).getAccountNo() + " , 입금 후 잔액 :"
+						+ accountListB.get(i).getMoney() + "원";
+			} else {
+				result = "계좌번호 오류";
+			}
 		}
 		return result;
 	}
 
 	@Override
-	public String findMoney(int accountNo) {
+	public String withdraw(int accountNo, int password, int money) {
+		/**
+		 * 출금
+		 */
+		String result = "";
+
+		for (int i = 0; i < accountListB.size(); i++) {
+
+			if (accountListB.get(i).getAccountNo() == accountNo) {
+				if (accountListB.get(i).getPassword() == password) {
+					if (accountListB.get(i).getMoney() >= money) {
+						accountListB.get(i).setMoney(accountListB.get(i).getMoney() - money);
+						result = "출금 완료 >> 계좌 :" + accountListB.get(i).getAccountNo() + " , 출금 후 잔액 :"
+								+ accountListB.get(i).getMoney() + "원";
+					} else {
+						result = "잔액 부족";
+					}
+				} else {
+					result = "비밀번호 오류";
+				}
+
+			} else {
+				result = "계좌번호 오류";
+			}
+		}
+
+		return result;
+	}
+
+	@Override
+	public String findMoney(int accountNo, int password) {
 		/**
 		 * 잔액조회
 		 */
 
-		return account.getName() + "님의 잔액 > " + account.getMoney() + "원";
+		String result = "";
+
+		for (int i = 0; i < accountListB.size(); i++) {
+
+			if (accountListB.get(i).getAccountNo() == accountNo) {
+				if (accountListB.get(i).getPassword() == password) {
+					result = "잔액 조회 >> 계좌 :" + accountListB.get(i).getAccountNo() + " , 잔액 :"
+							+ accountListB.get(i).getMoney() + "원";
+				} else {
+					result = "비밀번호 오류";
+				}
+
+			} else {
+				result = "계좌번호 오류";
+			}
+		}
+
+		return result;
 	}
 
 }

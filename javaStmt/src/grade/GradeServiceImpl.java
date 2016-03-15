@@ -1,16 +1,25 @@
-
+//미리언니 자리
 package grade;
 
+import java.util.Vector;
+
 public class GradeServiceImpl implements GradeService {
+	// 멤버필드
+	Vector<GradeBean> gradeList;
 
-	public void input() {
-		// C 성적표 등록
-
+	public GradeServiceImpl() {
+		gradeList = new Vector<GradeBean>();
 	}
 
-	public void getList() {
-		// R 성적표 리스트 출력
+	// 멤버 메소드 에어리어
+	public void input(GradeBean grade) {
+		// C 성적표 등록
+		gradeList.add(grade);
+	}
 
+	public Vector<GradeBean> getList() {
+		// R 성적표 리스트 출력	
+		return gradeList;
 	}
 
 	public void getGradeByHak() {

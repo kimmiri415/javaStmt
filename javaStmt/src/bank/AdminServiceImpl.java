@@ -3,126 +3,77 @@
  */
 package bank;
 
+import java.util.Vector;
+
 /**
- * @file BankService.java
+ * @file AdminServiceImpl.java
  * @author rlaalfl92@gmail.com
- * @date 2016. 3. 10.
- * @story 뱅크서비스 비즈니스 로직
+ * @date 2016. 3. 15.
+ * @story
  *
  */
-
 public class AdminServiceImpl implements AdminService {
-	private AccountBean[] accountList;// 전체 계좌를 보관하는 객체
+	private Vector<AccountBean> accountListA;
 
-	private int count = 0;// 전체 통장 계좌 수
-
-	public AdminServiceImpl(int size) {
-		// accountList를 초기화 해줌
-		accountList = new AccountBean[size];
-
+	public AdminServiceImpl() {
+		accountListA = new Vector<AccountBean>();
 	}
 
-	@Override
 	public String openAccount(String name, int password) {
 		/**
 		 * 계좌 개설
 		 */
-		AccountBean bean = new AccountBean(name, password);
-		accountList[count] = bean;
-		count++;// 계좌를 개설할 때마다 카운트를 1씩증가시킨다.
-		return bean.toString();
+		AccountBean beanA = new AccountBean(name, password);
+		accountListA.add(beanA);
+		return "개설완료 >> "+ beanA.toString();
 	}
 
-	@Override
+	public Vector<AccountBean> getList() {
+		/**
+		 * 전체 계좌 목록 출력*
+		 */
+		return accountListA;
+	}
+
 	public AccountBean findAccountByAccountNo(int accountNo) {
 		/**
 		 * 계좌번호로 계좌 조회(반드시 하나만 검색됨)
 		 */
-		AccountBean temp = new AccountBean();
-		for (int i = 0; i < count; i++) {
-			if (accountList[i].getAccountNo() == accountNo) {
-				temp = accountList[i];
-
+		for (int i = 0; i <accountListA.size(); i++) {
+			if(accountListA.get(i).getAccountNo()==accountNo){
+				//re
 			}
 		}
-		return temp;
+		
+		return null;
 	}
 
-	@Override
-	public void findAccountsByName(String name) {
+	public Vector<AccountBean> findAccountsByName(String name) {
 		/**
 		 * 이름으로 계좌 조회(복수개의 결과가능)
 		 */
-
-		AccountBean[] tempList = new AccountBean[countByName(name)];
-		int AccountNum = 0;
-		for (int i = 0; i < count; i++) {
-			if (accountList[i].getName().equals(name)) {
-				tempList[AccountNum] = accountList[i];
-				System.out.println("tempList[" + i + "] :" + tempList[AccountNum]);
-				AccountNum++;
-
-			}
-
-		}
-		return;
+		return null;
 	}
 
-	@Override
 	public String closeAccount(int accountNo) {
 		/**
 		 * 계좌 해지
 		 */
-		int indexNum = 0;
-		AccountBean newAccountList[] = new AccountBean[count - 1];
-		for (int i = 0; i < count; i++) {
-			if (accountList[i].getAccountNo() == accountNo) {
-
-				indexNum = i;
-				accountList[i] = null;// 계좌정보초기화
-
-			}
-		}
-		if (count != 1) {
-			if (indexNum != 0) {
-				System.arraycopy(accountList, 0, newAccountList, 0, indexNum);
-				System.arraycopy(accountList, indexNum + 1, newAccountList, indexNum, count - indexNum - 1);
-
-			} else if (indexNum == 0) {
-				System.arraycopy(accountList, 1, newAccountList, 0, count - 1);
-			}
-		}
-
-		count--;
-
-		for (int i = 0; i < newAccountList.length; i++) {
-			accountList[i] = newAccountList[i];
-			System.out.println(i + "번째계좌 : " + accountList[i]);
-		}
-
 		return null;
 	}
 
-	@Override
 	public int countAll() {
 		/**
 		 * 전체 계좌수 조회
 		 */
-		return count;
+		return 0;
 	}
 
-	@Override
 	public int countByName(String name) {
 		/**
 		 * 해당 이름에 맞는 계좌 수 조회
 		 */
-		int countAccountbyName = 0;
-		for (int i = 0; i < count; i++) {
-			if (accountList[i].getName().equals(name)) {
-				countAccountbyName++;
-			}
-		}
-		return countAccountbyName;
+		return 0;
 	}
 
 }

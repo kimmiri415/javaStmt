@@ -15,10 +15,11 @@ public interface BankService {
 	/**
 	 * 출금
 	 */
-	public String withdraw(int accountNo, int money);
+	public String withdraw(int accountNo, int password, int money);
 
 	/**
 	 * 잔액조회
 	 */
-	public String findMoney(int accountNo);
+	public String findMoney(int accountNo,int password);
+	
 }
