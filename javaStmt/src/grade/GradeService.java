@@ -1,6 +1,3 @@
-/**
- * 
- */
 package grade;
 
 /**
@@ -19,6 +16,10 @@ public interface GradeService {
 	public void getGradeByHak();
 	// R 성적표 조회(이름)
 	public void getGradesByName();
+	// R 카운트 조회
+	public void getCount();
+	// R 이름조회시 카운트조회
+	public void getCountByName();
 	// U 성적표 수정
 	public void update();
 	// D 성적표 삭제
