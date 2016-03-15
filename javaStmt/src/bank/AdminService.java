@@ -6,7 +6,7 @@ public interface AdminService {
 	/**
 	 * 계좌 개설
 	 */
-	public String openAccount(String name, int password);
+	public AccountBean openAccount(String name, int password);
 
 	/**
 	 * 전체 계좌 목록 출력*

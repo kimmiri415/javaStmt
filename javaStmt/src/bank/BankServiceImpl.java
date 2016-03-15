@@ -8,12 +8,15 @@ import java.util.Vector;
 public class BankServiceImpl implements BankService {
 
 	private Vector<AccountBean> accountListB;
-	int balance;
 
 	public BankServiceImpl() {
 		accountListB = new Vector<AccountBean>();
 	}
 
+//	public AccountBean findAccount(int accountNo){
+//		
+//	}
+	
 	@Override
 	public String openAccount(String name, int password) {
 		/**
@@ -38,8 +41,11 @@ public class BankServiceImpl implements BankService {
 				accountListB.get(i).setMoney(balance + money);
 				result = "입금 완료 >> 계좌 :" + accountListB.get(i).getAccountNo() + " , 입금 후 잔액 :"
 						+ accountListB.get(i).getMoney() + "원";
+				break;
+
 			} else {
 				result = "계좌번호 오류";
+
 			}
 		}
 		return result;
@@ -60,15 +66,19 @@ public class BankServiceImpl implements BankService {
 						accountListB.get(i).setMoney(accountListB.get(i).getMoney() - money);
 						result = "출금 완료 >> 계좌 :" + accountListB.get(i).getAccountNo() + " , 출금 후 잔액 :"
 								+ accountListB.get(i).getMoney() + "원";
+						break;
 					} else {
 						result = "잔액 부족";
+
 					}
 				} else {
 					result = "비밀번호 오류";
+
 				}
 
 			} else {
 				result = "계좌번호 오류";
+
 			}
 		}
 
@@ -89,12 +99,15 @@ public class BankServiceImpl implements BankService {
 				if (accountListB.get(i).getPassword() == password) {
 					result = "잔액 조회 >> 계좌 :" + accountListB.get(i).getAccountNo() + " , 잔액 :"
 							+ accountListB.get(i).getMoney() + "원";
+					break;
 				} else {
 					result = "비밀번호 오류";
+
 				}
 
 			} else {
 				result = "계좌번호 오류";
+
 			}
 		}
 
