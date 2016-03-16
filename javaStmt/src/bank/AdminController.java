@@ -18,7 +18,7 @@ import grade.GradeBean;
 public class AdminController {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		AdminServiceImpl serviceAdmin = new AdminServiceImpl();
+		AdminService serviceAdmin = new AdminServiceImpl();
 
 		while (true) {
 			System.out.println("[메뉴]1.계좌개설 2.전체 계좌목록 3.조회(계좌번호) 4.조회(이름) 5.계좌수 6.계좌해지 0.종료");

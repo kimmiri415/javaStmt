@@ -16,7 +16,6 @@ public class PhoneMain {
 		pm.useAnroidPhone(s);
 	}
 
-	
 	public void useAnroidPhone(Scanner s) {
 		AndroidPhone androidPhone = new AndroidPhone();
 		androidPhone.setCompany("안드로이드폰");
@@ -26,7 +25,7 @@ public class PhoneMain {
 		System.out.println(androidPhone.getData());
 	}
 
-	public  void useIphone(Scanner s) {
+	public void useIphone(Scanner s) {
 		IPhone iPhone = new IPhone();
 		iPhone.setCompany("애플");
 		System.out.println(iPhone.getCompany() + "를 사용합니다.");
@@ -35,8 +34,9 @@ public class PhoneMain {
 		System.out.println(iPhone.getData());
 	}
 
-	public  void useNokia(Scanner s) {
-		Phone nokia = new CelPhone(); // 부모의 타입이면 그자식의 생성자를 통해 인스턴스를 생성할 수 있다.
+	public void useNokia(Scanner s) {
+		Phone nokia = new CelPhone(); // DeepCopy
+		// 부모의 타입이면 그자식의 생성자를 통해 인스턴스를 생성할 수 있다.
 		nokia.setCompany("노키아");
 		System.out.println(nokia.getCompany() + "를 사용합니다.");
 		System.out.println("휴대폰으로 통화할 사람 ?");

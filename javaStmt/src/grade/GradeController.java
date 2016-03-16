@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class GradeController {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		GradeServiceImpl service = new GradeServiceImpl();
+		GradeService service = new GradeServiceImpl();
 		while (true) {
 			System.out.println("[메뉴] 1.등록 2.수정 3.삭제 4.조회(전체) 5.조회(이름) 6.조회(학번) 7.회원수 0.종료");
 			switch (s.nextInt()) {
