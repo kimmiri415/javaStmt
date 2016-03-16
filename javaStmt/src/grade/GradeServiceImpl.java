@@ -1,4 +1,3 @@
-//미리언니 자리
 package grade;
 
 import java.util.ArrayList;
